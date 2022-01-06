@@ -1,0 +1,320 @@
+#include<iostream>
+#include<conio.h>
+#include<string>
+#include<stdio.h>
+#include<Windows.h>
+using namespace std;
+string username("khoa1010");
+string passname("101003");
+string n1("kiemnv1");
+string n2("LinhPK");
+string n3("Kienpv");
+int main(){
+	HWND hWnd = GetConsoleWindow();
+	ShowWindow(hWnd, SW_SHOWMAXIMIZED);
+	khoa:
+	cout << "======WELCOME MENU======" << endl;
+	cout << "WELCOME SPA MANAGEMENT SYSTEM MENU !" << endl;
+	cout << "MENU: " << endl;
+	cout << "[1].Login." << endl;
+	cout << "[2].Exit." << endl;
+	int luachon;
+	cout << "Please choose: ";
+	cin >> luachon;
+	if (luachon == 2) {
+		exit(0);
+	}
+	if (luachon == 1) {
+		khoa1:
+		string c, b;
+		system("cls");
+		cout << "Username: ";
+		cin.ignore(32767, '\n');
+		getline(cin, c);
+		cout << "Passname: ";
+		getline(cin, b);
+		if (b == passname && c == username) {
+			cout << "Login success!" << endl;
+			Sleep(1000);
+			khoa2:
+				system("cls");
+				cout << "======MAIN MENU======" << endl;
+				int luachon;
+				cout << "[1].Go to Employee Management." << endl;
+				cout << "[2].Go to Payroll Management." << endl;
+				cout << "[3].Change password." << endl;
+				cout << "[0].Exit." << endl;
+				cout << "Please choose: ";
+				cin >> luachon;
+				if (luachon == 1) {
+					khoa3:
+					system("cls");
+					cout << "======EMPLOYEE MANAGEMENT MENU======" << endl;
+					cout << "[1].Print all employee's information." << endl;
+					cout << "[2].Add new employee." << endl;
+					cout << "[3].Remove an employee by id." << endl;
+					cout << "[4].Update information an employee by id." << endl;
+					cout << "[5].Search information an employee by id." << endl;
+					cout << "[0].Exit" << endl;
+					cout << "Please choose: " << endl;
+					int luachon;
+					cin >> luachon;
+					if (luachon == 1) {
+						system("cls");
+						cout << "ID\t\t\tFull name\t\t\tAddress\t\t\tBirthday\t\t\tType" << endl;
+						cout << "kiemnv1\t\t\tNguyen Van Kiem\t\t\tHa Noi\t\t\t1999-10-20\t\t\tManager" << endl;
+						cout << "LinhPK\t\t\tPham Khanh Linh\t\t\tBac Ninh\t\t1998-02-10\t\t\tNail Technician" << endl;
+						cout << "Kienpv\t\t\tPham Van Kien\t\t\tCalifornia\t\t2001-04-04\t\t\tNail Technician" << endl;
+						Sleep(1000);
+						cout << "Number of employee: 3" << endl;
+						cout << "Enter 0 to exit.";
+						int n;
+						cin >> n;
+						goto khoa3;
+					}
+					if (luachon == 2) {
+						system("cls");
+						cout << "======ADD NEW EMPLOYEE MENU======" << endl;
+						cout << "Enter Employee Type: ";
+						int n;
+						cin >> n;
+						if (n == 0) {
+							cout << "Nail Technician" << endl;
+						}
+						if (n == 1) {
+							cout << "Manager" << endl;
+						}
+						cout << "Enter Employee ID: ";
+						string name, name1, text;
+						cin.ignore(32767, '\n');
+						getline(cin, name);
+						cout << endl;
+						cout << "Enter Employee Name: ";
+						cin.ignore(32767, '\n');
+						getline(cin, name1);
+						cout << endl;
+						cout << "Enter Employee BirthDay: ";
+						cin.ignore(32767, '\n');
+						getline(cin, text);
+						cout << endl;
+						cout << "Enter Salary per hour: ";
+						int a;
+						cin >> a;
+						if (name == n1 || name == n2 || name == n3) {
+							cout << "Duplicate ID, choice 0 to exit, 1 to continue:";
+							int n;
+							cin >> n;
+							if (n == 0) {
+								goto khoa3;
+							}
+							if (n == 1) {
+								cout << "Enter Employee Type: ";
+								int n;
+								cin >> n;
+								if (n == 0) {
+									cout << "Nail Technician" << endl;
+								}
+								if (n == 1) {
+									cout << "Manager" << endl;
+								}
+								cout << "Enter Employee ID: ";
+								string name, name1, text;
+								cin.ignore(32767, '\n');
+								getline(cin, name);
+								cout << endl;
+								cout << "Enter Employee Name: ";
+								cin.ignore(32767, '\n');
+								getline(cin, name1);
+								cout << endl;
+								cout << "Enter Employee BirthDay: ";
+								cin.ignore(32767, '\n');
+								getline(cin, text);
+								cout << endl;
+								cout << "Enter Salary per hour: ";
+								int a;
+								cin >> a;
+								goto khoa3;
+							}
+						}
+						else {
+							cout << "Success!";
+							goto khoa3;
+						}
+					}
+					if (luachon == 3) {
+						system("cls");
+						cout << "======REMOVE EMPLOYEE MENU======";
+						cout << "Enter Employee ID: ";
+						string name;
+						cin.ignore(32767, '\n');
+						getline(cin, name);
+						if (name == n1 || name == n2 || name == n3) {
+							cout << "Remove Successfully.";
+							goto khoa3;
+						}
+						else {
+							cout << "System doesn’t include this id, remove failed.";
+							goto khoa3;
+						}
+					}
+					if (luachon == 4) {
+						system("cls");
+						cout << "======UPDATE EMPLOYEE NEMU======";
+						cout << "Enter Employee ID: ";
+						string name;
+						cin.ignore(32767, '\n');
+						getline(cin, name);
+						if (name == n1 || name == n2 || name == n3) {
+							cout << "ID VALID" << endl;
+							
+							Sleep(100);
+						    khoa4:
+							cout << "======UPDATE EMPLOYEE NEMU======";
+							cout << "[1]:Update Name." << endl;
+							cout << "[2]:Update Address." << endl;
+							cout << "[3]:Update Day of Birth." << endl;
+							cout << "[0].Exit." << endl;
+							cout << "Please choose: ";
+							int n;
+							cin >> n;
+							if (n == 1) {
+								system("cls");
+								cout << "======UPDATE EMPLOYEE MENU======" << endl;
+								cout << "Enter new employee’s name: ";
+								string name;
+								cin.ignore(32767, '\n');
+								getline(cin, name);
+								goto khoa4;
+							}
+							if (n == 2) {
+								system("cls");
+								cout << "======UPDATE EMPLOYEE MENU======" << endl;
+								cout << "Enter new employee’s address: ";
+								string name;
+								cin.ignore(32767, '\n');
+								getline(cin, name);
+								goto khoa4;
+							}
+							if (n == 3) {
+								system("cls");
+								cout << "======UPDATE EMPLOYEE MENU======" << endl;
+								cout << "Enter new employee’s birthday: ";
+								string name;
+								cin.ignore(32767, '\n');
+								getline(cin, name);
+								goto khoa4;
+							}
+						}
+						else {
+							cout << "System doesn’t include this id, update failed.";
+							goto khoa3;
+						}
+					}
+					if (luachon == 5) {
+						system("cls");
+						cout << "======SEARCH EMPLOYEE MENU======";
+						cout << "Enter Employee ID: ";
+						string name;
+						cin.ignore(32767, '\n');
+						getline(cin, name);
+						cout << endl;
+						if (name == n1) {
+							cout << "ID\t\t\tFull name\t\t\tAddress\t\t\tBirthday\t\t\tType" << endl;
+							cout << "kiemnv1\t\t\tNguyen Van Kiem\t\t\tHa Noi\t\t\t1999-10-20\t\t\tManager" << endl;
+						}
+						if (name == n2) {
+							cout << "ID\t\t\tFull name\t\t\tAddress\t\t\tBirthday\t\t\tType" << endl;
+							cout << "LinhPK\t\t\tPham Khanh Linh\t\t\tBac Ninh\t\t1998-02-10\t\t\tNail Technician" << endl;
+						}
+						if (name == n3) {
+							cout << "ID\t\t\tFull name\t\t\tAddress\t\t\tBirthday\t\t\tType" << endl;
+							cout << "Kienpv\t\t\tPham Van Kien\t\t\tCalifornia\t\t2001-04-04\t\t\tNail Technician" << endl;
+						}
+						cout << "Enter 0 to exit.";
+						int n;
+						cin >> n;
+						goto khoa3;
+					}
+				}
+				
+			if (luachon == 2) {
+				khoa5:
+				system("cls");
+				cout << "======PAYROLL MANAGEMENT MENU======" << endl;
+				cout << "[1]:Input payroll for employee." << endl;
+				cout << "[2]:Calculate salary and profit." << endl;
+				cout << "[0]:Exit." << endl;
+				int n;
+				cout << "Please choose: ";
+				cin >> n;
+				if (n == 1) {
+					system("cls");
+					cout << "======PAYROLL INPUT MENU======" << endl;
+					cout << "Enter Date: ";
+					string name;
+					cin.ignore(32767, '\n');
+					getline(cin, name);
+					cout << endl;
+					cout << "Enter Employee ID: ";
+					string name1;
+					cin.ignore(32767, '\n');
+					getline(cin, name1);
+					if (name1 == n1) {
+						system("cls");
+						cout << "======PAYROLL INPUT FOR MANAGER MENU======";
+						cout << "Enter hours/days: ";
+						int n;
+						cin >> n;
+					}
+					else if (name1 == n2 || name1 == n3) {
+						system("cls");
+						cout << "======PAYROLL INPUT FOR NAIL TECHNICIAN MENU======";
+						cout << "Enter money (split + by each receipt, unit $), no space between words :" << endl;
+						int n;
+						cin >> n;
+						cout << "Enter tips(split + by each receipt, unit $), no space between words : " << endl;
+						int a;
+						cin >> a;
+					}
+					else {
+						cout << "Invalid employee !";
+						goto khoa5;
+					}
+				}
+				if (n == 2) {
+
+				}
+			}
+			if (luachon == 3) {
+				system("cls");
+				cout << "======CHANGE PASSWORD MENU ======" << endl;
+				cout << "Enter old password: ";
+				string name;
+				cin.ignore(32767, '\n');
+				getline(cin, name);
+				cout << "Enter new password: ";
+				string name1;
+				cin.ignore(32767, '\n');
+				getline(cin, name1);
+				if (name != passname) {
+					cout << "Incorrect old password, exited, haha !";
+					goto khoa2;
+				}
+				else {
+					cout << "Change password successfully !";
+					goto khoa2;
+				}
+			}
+			if (luachon == 0) {
+				goto khoa1;
+			}
+		}
+		else {
+		system("cls");
+			cout << "Incorrect username or password.";
+			Sleep(1000);
+			system("cls");
+			goto khoa;
+		}
+	}
+}
